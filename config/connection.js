@@ -3,6 +3,7 @@
 // * Export the connection.
 
 // Set up MySQL connection.
+require('dotenv').config();
 const mysql = require("mysql");
 let connection
 if (process.env.JAWSDB_URL) {
@@ -11,7 +12,7 @@ if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "password",
+    password: process.env.DB_PASS,
     database: "burgers_db"
   });
 }
